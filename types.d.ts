@@ -6,3 +6,8 @@ type CustomButtonProps = {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType: "button" | "submit";
 };
+
+type SearchManufacturerProps = {
+  manufacturer: string,
+  setManufacturer: (manufacturer: string) => void
+}
