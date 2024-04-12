@@ -12,7 +12,7 @@ type CarCardProps = {
 };
 
 export default function CarCard({ car }: CarCardProps) {
-  const { city_mpg, year, make, model, transmission, drive } = car;
+  const { city_mpg, year, make, model, transmission, drive, cylinders } = car;
 
   const carRent = calculateCarRent(city_mpg, year);
 
@@ -58,6 +58,10 @@ export default function CarCard({ car }: CarCardProps) {
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/tire.svg" width={20} height={20} alt="tire" />
             <p className="text-[14px]">{drive.toUpperCase()}</p>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image src="/piston2.png" width={22} height={22} alt="piston" />
+            <p className="text-[14px]">{!cylinders ? 'EV' : cylinders}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
