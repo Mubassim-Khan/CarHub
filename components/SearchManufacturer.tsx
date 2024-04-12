@@ -41,6 +41,7 @@ export default function SearchManufacturer({
             placeholder="Manfacturer"
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
+            autoComplete="off"
           />
 
           <Transition

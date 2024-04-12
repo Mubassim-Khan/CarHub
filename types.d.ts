@@ -28,3 +28,11 @@ type CarProps = {
   transmission: string;
   year: number;
 };
+
+type FilterProps = {
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
+};
