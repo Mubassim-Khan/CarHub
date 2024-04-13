@@ -36,3 +36,13 @@ type FilterProps = {
   limit: number;
   model: string;
 };
+
+type OptionProps = {
+  title: string;
+  value: string;
+};
+
+type CustomFilterProps = {
+  title: string;
+  options: OptionProps[];
+};
