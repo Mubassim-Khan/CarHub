@@ -46,3 +46,8 @@ type CustomFilterProps = {
   title: string;
   options: OptionProps[];
 };
+
+type ShowMoreProps = {
+  pageNumber: number;
+  isNext: boolean;
+};
