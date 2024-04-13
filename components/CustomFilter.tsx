@@ -23,7 +23,8 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
         onChange={(e) => {
           setSelected(e);
           handleUpdateParams(e);
-        }}>
+        }}
+      >
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
             <span className="block truncate">{selected.title}</span>
@@ -51,10 +52,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
                     }`
                   }>
                   {({ selected }) => (
-                    <span
-                      className={`block truncate ${
-                        selected ? "font-medium" : "font-normal"
-                      }`}>
+                    <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>
                       {option.title}
                     </span>
                   )}

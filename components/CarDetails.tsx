@@ -112,7 +112,7 @@ export default function CarDetails({
                             {key.split("_").join(" ")}
                           </h4>
                           <p className="text-black-100 font-semibold">
-                            {value}
+                            {value.toString().toUpperCase()}
                           </p>
                         </div>
                       ))}

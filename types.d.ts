@@ -51,3 +51,7 @@ type ShowMoreProps = {
   pageNumber: number;
   isNext: boolean;
 };
+
+type HomeProps = {
+  searchParams: FilterProps
+}

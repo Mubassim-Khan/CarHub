@@ -24,12 +24,12 @@ export default function SearchBar() {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (manufacturer && model === "") {
-      return alert("Please fill seach bar to search for car !");
-    }
-
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+  };
+
+  const clearSearch = () => {
+    setManufacturer("");
+    setModel("");
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
@@ -51,7 +51,7 @@ export default function SearchBar() {
       window.location.pathname
     }?${searchParams.toString()}`;
 
-    router.push(newPathName, {scroll: false});
+    router.push(newPathName, { scroll: false });
   };
 
   return (
@@ -61,6 +61,19 @@ export default function SearchBar() {
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
         />
+
+        <button
+          type="button"
+          className="ml-1 mr-4 z-10 sm:hidden"
+          onClick={clearSearch}>
+          <Image
+            src="/remove.png"
+            alt="remove"
+            width={20}
+            height={20}
+            className="object-contain"
+          />
+        </button>
 
         <SearchButton otherClasses="sm:hidden" />
       </div>
@@ -81,8 +94,36 @@ export default function SearchBar() {
           className="searchbar__input"
           autoComplete="off"
         />
+
+        <button
+          type="button"
+          className="ml-1 mr-4 z-10 sm:hidden"
+          onClick={clearSearch}>
+          <Image
+            src="/remove.png"
+            alt="remove"
+            width={20}
+            height={20}
+            className="object-contain"
+          />
+        </button>
+        
         <SearchButton otherClasses="sm:hidden" />
       </div>
+
+      <button
+        type="button"
+        className="ml-1 mr-4 z-10 max-sm:hidden"
+        onClick={clearSearch}>
+        <Image
+          src="/remove.png"
+          alt="remove"
+          width={20}
+          height={20}
+          className="object-contain"
+        />
+      </button>
+
       <SearchButton otherClasses="max-sm:hidden" />
     </form>
   );

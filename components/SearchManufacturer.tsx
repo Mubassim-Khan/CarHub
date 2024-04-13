@@ -38,7 +38,7 @@ export default function SearchManufacturer({
 
           <Combobox.Input
             className="search-manufacturer__input"
-            placeholder="Manfacturer"
+            placeholder="Volkswagen"
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
             autoComplete="off"
@@ -49,8 +49,11 @@ export default function SearchManufacturer({
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            afterLeave={() => setQuery("")}>
-            <Combobox.Options>
+            afterLeave={() => setQuery("")}
+          >
+            <Combobox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
+            static
+            >
               {filteredManufacturers.length === 0 && query !== "" ? (
                 <Combobox.Option
                   value={query}
@@ -61,15 +64,12 @@ export default function SearchManufacturer({
                 filteredManufacturers.map((item) => (
                   <Combobox.Option
                     key={item}
-                    className={({ active }) => `
-                                        relative search-manufacturer__option
-                                        ${
-                                          active
-                                            ? "bg-primary-blue text-white"
-                                            : "text-gray-900"
-                                        }
-                                    `}
-                    value={item}>
+                    className={({ active }) => `relative search-manufacturer__option ${
+                        active
+                          ? "bg-primary-blue text-white"
+                          : "text-gray-900"}`}
+                    value={item}
+                  >
                     {({ selected, active }) => (
                       <>
                         <span
@@ -85,7 +85,6 @@ export default function SearchManufacturer({
                               active ? "text-white" : "text-teal-600"
                             }`}></span>
                         ) : null}
-
                       </>
                     )}
                   </Combobox.Option>
