@@ -4,9 +4,6 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 export default function Hero() {
-  const handleScroll = () => {
-    alert("Clicked");
-  };
   return (
     <div className="hero">
       <div className="flex-1 pt-36 padding-x">
@@ -22,7 +19,6 @@ export default function Hero() {
         <CustomButton
           title="Explore Cars"
           containerStyles="bg-primary-blue text-white rounded-full mt-10"
-          handleClick={handleScroll}
           btnType="button"
         />
       </div>
