@@ -32,6 +32,21 @@ export default function SearchBar() {
     setModel("");
   };
 
+  const ClearButton = ({ otherClasses }: { otherClasses: string }) => (
+    <button
+      type="button"
+      className={`ml-2 mr-5 z-10 ${otherClasses}`}
+      onClick={clearSearch}>
+      <Image
+        src="/remove.png"
+        alt="remove"
+        width={20}
+        height={20}
+        className="object-contain"
+      />
+    </button>
+  );
+
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
@@ -62,19 +77,7 @@ export default function SearchBar() {
           setManufacturer={setManufacturer}
         />
 
-        <button
-          type="button"
-          className="ml-1 mr-4 z-10 sm:hidden"
-          onClick={clearSearch}>
-          <Image
-            src="/remove.png"
-            alt="remove"
-            width={20}
-            height={20}
-            className="object-contain"
-          />
-        </button>
-
+        <ClearButton otherClasses="sm:hidden" />
         <SearchButton otherClasses="sm:hidden" />
       </div>
       <div className="searchbar__item">
@@ -95,35 +98,11 @@ export default function SearchBar() {
           autoComplete="off"
         />
 
-        <button
-          type="button"
-          className="ml-1 mr-4 z-10 sm:hidden"
-          onClick={clearSearch}>
-          <Image
-            src="/remove.png"
-            alt="remove"
-            width={20}
-            height={20}
-            className="object-contain"
-          />
-        </button>
-        
+        <ClearButton otherClasses="sm:hidden" />
         <SearchButton otherClasses="sm:hidden" />
       </div>
 
-      <button
-        type="button"
-        className="ml-1 mr-4 z-10 max-sm:hidden"
-        onClick={clearSearch}>
-        <Image
-          src="/remove.png"
-          alt="remove"
-          width={20}
-          height={20}
-          className="object-contain"
-        />
-      </button>
-
+      <ClearButton otherClasses="max-sm:hidden" />
       <SearchButton otherClasses="max-sm:hidden" />
     </form>
   );
