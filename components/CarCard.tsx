@@ -12,6 +12,7 @@ type CarCardProps = {
 };
 
 export default function CarCard({ car }: CarCardProps) {
+  // De-structuring the properties from 'car'
   const { city_mpg, year, make, model, transmission, drive, cylinders } = car;
 
   const carRent = calculateCarRent(city_mpg, year);
@@ -63,12 +64,15 @@ export default function CarCard({ car }: CarCardProps) {
             <Image src="/tire.svg" width={20} height={20} alt="tire" />
             <p className="text-[14px]">{drive.toUpperCase()}</p>
           </div>
+
+          {/* If property 'cylinders' is null from JSON data, display 'EV' in place of it */}
           {!cylinders ? (
             <>
               <div className="flex flex-col justify-center items-center gap-2">
                 <Image src="/leaf.png" width={22} height={22} alt="piston" />
                 <p className="text-[14px]">{"EV"}</p>
               </div>
+              {/* Changing the unit for EVs from MPG to kWh */}
               <div className="flex flex-col justify-center items-center gap-2">
                 <Image src="/charger.png" width={20} height={20} alt="gas" />
                 <p className="text-[14px]">{city_mpg} kWh</p>

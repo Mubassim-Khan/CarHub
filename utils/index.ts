@@ -4,6 +4,8 @@ const url = new URL("https://cars-by-api-ninjas.p.rapidapi.com/v1/cars");
 
 export async function fetchCars(filters: FilterProps) {
   const { manufacturer, year, fuel, model, limit } = filters;
+
+  // Appending the parameters, into URL using searchParams method. (Could also concatente in URL using string literals, but was hiding URL in this case)
   url.searchParams.append("make", manufacturer);
   url.searchParams.append("year", year.toString());
   url.searchParams.append("model", model);
@@ -56,6 +58,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   return `${url}`;
 };
 
+// Made this function as global, to access easily.
 export const updateSearchParams = (type: string, value: string) => {
   const searchParams = new URLSearchParams(window.location.search);
 

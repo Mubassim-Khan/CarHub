@@ -11,6 +11,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
   const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
+  // Updates the parameters of URL from the Filter options & pushes to route
   const handleUpdateParams = (e: { title: string; value: string }) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
     router.push(newPathName, {scroll: false});

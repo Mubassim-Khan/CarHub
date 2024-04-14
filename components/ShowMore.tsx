@@ -8,6 +8,7 @@ import { updateSearchParams } from "@/utils";
 export default function ShowMore({ pageNumber, isNext }: ShowMoreProps) {
   const router = useRouter();
 
+  // Using pagination, increasing the number of page by 1
   const handleNavigation = () => {
     const newLimit = (pageNumber + 1) * 10;
     const newPathName = updateSearchParams("limit", `${newLimit}`);

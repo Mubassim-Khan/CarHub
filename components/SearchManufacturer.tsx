@@ -12,6 +12,7 @@ export default function SearchManufacturer({
 }: SearchManufacturerProps) {
   const [query, setQuery] = useState("");
 
+  // Converting all manuacturers in lowercase & replacing all white spaces from +
   const filteredManufacturers =
     query === ""
       ? manufacturers

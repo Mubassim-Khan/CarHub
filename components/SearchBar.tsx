@@ -5,6 +5,7 @@ import { SearchManufacturer } from "./";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+// A local component to display Search icon
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
     <Image
@@ -18,10 +19,12 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 );
 
 export default function SearchBar() {
+  // 2 states to keep track of input bars 
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const router = useRouter();
 
+  // Searches for a car using SSR 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
@@ -32,6 +35,7 @@ export default function SearchBar() {
     setModel("");
   };
 
+  // A local component to clear input fields & display cross icon
   const ClearButton = ({ otherClasses }: { otherClasses: string }) => (
     <button
       type="button"
@@ -47,6 +51,7 @@ export default function SearchBar() {
     </button>
   );
 
+  // Updates the parameters of URL by taking input from fields  
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
