@@ -12,7 +12,7 @@
 
 1. [Introduction](#introduction)
 2. [Features](#features)
-2. [Tech Stack](#tech-stack)
+3. [Tech Stack](#tech-stack)
 4. [Getting Started](#quick-start)
 5. [Contributing](#contributing)
 6. [Acknowledgements](#acknowledgements)
