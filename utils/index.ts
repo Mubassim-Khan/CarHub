@@ -3,13 +3,13 @@ import { CarProps, FilterProps } from "@/types";
 const url = new URL("https://cars-by-api-ninjas.p.rapidapi.com/v1/cars");
 
 export async function fetchCars(filters: FilterProps) {
-  const { manufacturer, year, fuel, model, limit } = filters;
+  const { manufacturer, year, fuel, model } = filters;
 
   // Appending the parameters, into URL using searchParams method. (Could also concatente in URL using string literals, but was hiding URL in this case)
   url.searchParams.append("make", manufacturer);
   url.searchParams.append("year", year.toString());
   url.searchParams.append("model", model);
-  url.searchParams.append("limit", limit.toString());
+  // url.searchParams.append("limit", limit.toString());  // Removed the 'limit' paramter, because of an error
   url.searchParams.append("fuel_type", fuel);
 
   try {
